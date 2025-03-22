@@ -1,0 +1,153 @@
+*{
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    transition: .2s;
+}
+
+
+/* similar items */
+ul{
+    list-style: none;
+}
+a{
+    display: block;
+    color: black;
+    text-decoration: none;
+}
+
+
+
+/* body */
+body{
+    font-family: sans-serif;
+    position: relative;
+    min-height: 100vh;
+}
+
+
+/********************************** nav *************************/
+nav{
+    max-width: 900px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    height: 100px;
+    /* border-bottom: 2px solid #b6bcc8; */
+    border-bottom: 2px solid #f7f8fd;
+
+}
+/* left side */
+
+.icon-menue{
+    display: none;
+    cursor: pointer;
+    padding: 5px;
+}
+nav .leftNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+nav .leftNav ul{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+nav .leftNav ul li a{
+    display: block;
+    text-decoration: none;
+    color:  #68707d;
+    padding: 20px 10px;
+    border-bottom: 3px solid transparent;
+    padding: 40px 10px;
+}
+nav .leftNav ul li a:hover{
+    border-bottom: 3px solid #ff7d1a;
+}
+
+/* right side */
+nav .rightNav{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 30px;
+}
+
+nav .icon-cart img{
+    padding: 5px;
+    cursor: pointer;
+}
+nav .rightNav .avatar{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    overflow: hidden;
+    border: 2px solid #ff7d1a;
+    
+}
+nav .rightNav .avatar img{
+    width: 100% ;
+    height: 100% ;
+    cursor: pointer;
+}
+
+
+/* mobile  menue*/
+.alert-dark{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0,0.75);
+    z-index: 9;
+    display: flex;
+    display: none;
+    align-items: center;
+}
+#space{
+    flex-grow: 1;
+    height: 100vh;
+}
+.alert-dark .mobile-menue{
+    width: 260px;
+    height: 100vh;
+    background-color: white;
+    z-index: 99;
+    padding: 30px 15px ;
+    transform: translateX(-100%);
+    display: none;
+}
+.alert-dark .mobile-menue ul{
+    margin: 25px 0;
+}
+.alert-dark .mobile-menue ul li a{
+    font-weight: 600;
+    color: #1d2025;
+    margin: 15px 0;
+}
+#x-close-menue{
+    cursor: pointer;
+    width: 20px;
+}
+
+
+
+
+
+/* @media */
+@media screen and (max-width:992px){
+    nav{
+        padding: 0 20px;
+    }
+    nav .leftNav ul{
+        display: none;
+    }
+    .icon-menue{
+        display: block;
+    }
+    
+}
