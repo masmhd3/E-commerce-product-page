@@ -65,3 +65,50 @@ function showPhoto(){
     userPhoto.src = varUserData
 }
 showPhoto()
+
+
+// container
+const mainImg = document.querySelector('.mainImg img')
+const allImages = document.querySelectorAll('.smallImg .img img')
+const AllMainImgs = [
+    'img/images/image-product-1.jpg',
+    'img/images/image-product-2.jpg',
+    'img/images/image-product-3.jpg',
+    'img/images/image-product-4.jpg',
+]
+
+allImages.forEach((img) => {
+    img.onclick = function(){
+        allImages.forEach((ele) =>{
+            ele.style.opacity = '1'
+            ele.parentElement.style.borderColor = 'transparent'
+        })
+        img.style.opacity = '.5'
+        img.parentElement.style.borderColor = '#ff7d1a'
+
+        mainImg.src = AllMainImgs[Array.from(allImages).indexOf(img)]
+    }
+    allImages[0].click()
+})
+
+
+//counter
+const counter = document.getElementById('number');
+const minusIcon = document.getElementById('minusIcon');
+const plusIcon = document.getElementById('plusIcon');
+
+let numberProducts = 1
+plusIcon.onclick = function() {
+    numberProducts += 1;
+    counter.innerHTML = numberProducts
+};
+minusIcon.onclick = function() {
+    if(numberProducts <= 0){
+        numberProducts = 0;
+    }
+    numberProducts -= 1;
+    counter.innerHTML = numberProducts
+};
+
+
+
