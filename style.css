@@ -116,7 +116,7 @@ nav .rightNav .avatar img{
 }
 .alert-dark .mobile-menue{
     width: 260px;
-    height: 100vh;
+    height: 100%;
     background-color: white;
     z-index: 99;
     padding: 30px 15px ;
