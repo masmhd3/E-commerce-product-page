@@ -195,6 +195,7 @@ btnAddToCart.onclick = function(){
     localStorage.loArrDataProducts = JSON.stringify(arrDataProducts)
     showProCart()
     checkProCart()
+    window.scrollTo({top:0, behavior:'smooth'})
 }
 
 // function show products in cart
