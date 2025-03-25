@@ -76,7 +76,7 @@ const AllMainImgs = [
     'img/images/image-product-3.jpg',
     'img/images/image-product-4.jpg',
 ]
-
+let indexImg ;
 allImages.forEach((img) => {
     img.onclick = function(){
         allImages.forEach((ele) =>{
@@ -87,6 +87,7 @@ allImages.forEach((img) => {
         img.parentElement.style.borderColor = '#ff7d1a'
 
         mainImg.src = AllMainImgs[Array.from(allImages).indexOf(img)]
+        indexImg = Array.from(allImages).indexOf(img)// index number
     }
     allImages[0].click()
 })
@@ -125,13 +126,7 @@ cartIcon.onclick = function(){
         cartIcon.style.filter = 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.5))'
 
         //
-        if(fillCart.firstElementChild.innerHTML){
-            fillCart.style.display = 'flex'
-            emptyCart.style.display = 'none'
-        }else{
-            fillCart.style.display = 'none'
-            emptyCart.style.display = 'flex'
-        }
+        checkProCart()
 
     }else{
         alertCart.style.display = 'none'
@@ -140,8 +135,108 @@ cartIcon.onclick = function(){
     }
 }
 
+function checkProCart(){
+    if(fillCart.firstElementChild.innerHTML){
+        fillCart.style.display = 'flex'
+        emptyCart.style.display = 'none'
+    }else{
+        fillCart.style.display = 'none'
+        emptyCart.style.display = 'flex'
+    }
+}
 
-// notice 
+// cart 
 const btnAddToCart = document.getElementById('btn-add-cart');
 const noticeCart = document.getElementById('com');
 const productBox = document.getElementById('contPro');
+
+// notice
+let noticeCounter;
+localStorage.loNoticeCounter;
+if(localStorage.loNoticeCounter != null){
+    noticeCounter = JSON.parse(localStorage.loNoticeCounter)
+}else{
+    noticeCounter = 0
+}
+// function show notice
+function showNotice(){
+    if(noticeCounter <= 0){
+        noticeCart.style.display = 'none'
+    }else{
+        noticeCart.style.display = 'block'
+        noticeCart.innerHTML = noticeCounter
+    }
+}
+showNotice()
+
+
+
+// create data products
+localStorage.loArrDataProducts;
+let arrDataProducts;
+if(localStorage.loArrDataProducts != null){
+    arrDataProducts = JSON.parse(localStorage.loArrDataProducts)
+}else{
+    arrDataProducts = []
+}
+// btn add to cart
+btnAddToCart.onclick = function(){
+    // notice
+    noticeCounter += 1
+    localStorage.loNoticeCounter = JSON.stringify(noticeCounter)
+    showNotice()
+    
+    // create data product
+    let OBJDataProduct = {
+        imgIndex: AllMainImgs[indexImg],
+        numberPro: numberProducts
+    }
+    arrDataProducts.push(OBJDataProduct)
+    localStorage.loArrDataProducts = JSON.stringify(arrDataProducts)
+    showProCart()
+    checkProCart()
+}
+
+// function show products in cart
+function showProCart(){
+    productBox.innerHTML = '';
+    for(let i = 0; i < arrDataProducts.length; i++){
+        productBox.innerHTML +=`
+            <div class="products">
+                <img class="img-pro-alert" src="${arrDataProducts[i].imgIndex}" alt="">
+                <div class="text-alert">
+                    <p class="f-alert">fall limite edition sneakers</p>
+                    <p class="s-alert">$125.00 x ${arrDataProducts[i].numberPro} = 
+                    <span>$${Number(arrDataProducts[i].numberPro) * 125}.00</span></p>
+                </div>
+                <img onclick="delProCart(${i})" class="deleteIcont" src="img/images/icon-delete.svg" alt="">
+            </div>
+        `
+    }
+
+}
+showProCart()
+
+// function delete product in cart
+function delProCart(i){
+    arrDataProducts.splice(i,1);
+    noticeCounter -= 1
+    localStorage.loArrDataProducts = JSON.stringify(arrDataProducts)
+    localStorage.loNoticeCounter = JSON.stringify(noticeCounter)
+    showProCart()// function show products in cart
+    checkProCart()// function checkProCart products in cart
+    showNotice()// function showNotice products in cart
+}
+
+// btn checkout
+const btnCheckOut = document.querySelector('.btn-chechout');
+btnCheckOut.onclick = function(){
+    arrDataProducts.splice(0)
+    localStorage.loArrDataProducts = JSON.stringify(arrDataProducts)
+    console.log(arrDataProducts)
+    noticeCounter = 0
+    localStorage.loNoticeCounter = JSON.stringify(noticeCounter)
+    showProCart()
+    checkProCart()
+    showNotice()
+}
