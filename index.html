@@ -30,7 +30,7 @@
                 </ul>
             </div>
             <div class="rightNav">
-                <div class="icon-cart"><img src="img/images/icon-cart.svg" alt="img"></div>
+                <div class="icon-cart"><img src="img/images/icon-cart.svg" alt="img"><span id="com">0</span></div>
                 <div class="avatar"><img id="userPhoto" src="img/images/image-avatar.png" alt="img"></div>
             </div>
         </nav>
@@ -79,11 +79,24 @@
                     <div id="number">1</div>
                     <img id="plusIcon" src="img/images/icon-plus.svg" alt="">
                 </div>
-                <button style="display: block;">add to cart</button>
+                <button id="btn-add-cart" >Add to cart</button>
             </div>
         </div>
     </div>
 
+    
+    <div class="alert-cart">
+        <p class="top">cart</p>
+        <div class="content-cart">
+            <p class="defaultText">Your cart is empty</p>
+        </div>
+
+        <div class="listCart">
+            <div id="contPro"></div>
+            <button class="btn-chechout">checkout</button>
+        </div>
+            
+    </div>
     
 
     <!-- js -->
