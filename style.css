@@ -5,11 +5,12 @@
     transition: .2s;
 }
 
-
 /* similar items */
+/* all lists */
 ul{
     list-style: none;
 }
+/* all links */
 a{
     display: block;
     color: black;
@@ -97,7 +98,7 @@ nav .rightNav .avatar img{
 }
 
 
-/* mobile  menue*/
+/*************************** mobile  menue ***************************/
 .alert-dark{
     position: absolute;
     top: 0;
@@ -150,7 +151,7 @@ nav .rightNav .avatar img{
 }
 
 
-/************** container ******************/
+/******************************** container *********************************/
 .container{
     max-width: 1024px;
     margin: auto;
@@ -160,6 +161,7 @@ nav .rightNav .avatar img{
     justify-content: space-evenly;
     gap:100px;
 }
+/* left side */
 .leftContainer{
     display: flex;
     flex-direction: column;
@@ -168,6 +170,9 @@ nav .rightNav .avatar img{
 .mainImg img{
     width: 300px;
     border-radius: 10px;
+}
+.mainImg img:hover{
+    cursor: pointer;
 }
 .smallImg{
     display: flex;
@@ -193,8 +198,7 @@ nav .rightNav .avatar img{
     cursor: pointer;
 }
 
-
-
+/* right side */
 .rightContainer{
     width: 350px;
 }
@@ -241,7 +245,6 @@ nav .rightNav .avatar img{
     gap: 20px;
 
 }
-
 .buy button{
     background-color: #ff7d1a;
     border: none;
@@ -271,8 +274,7 @@ nav .rightNav .avatar img{
 }
 
 
-/* alert-cart */
-
+/******************************* alert-cart **************************/
 .alert-cart {
     position: absolute;
     top: 100px;
@@ -374,8 +376,105 @@ nav .rightNav .avatar img{
 }
 
 
-/* @media */
+
+/************************ Galary ************************/
+.alert-show-img{
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgb(0, 0, 0,0.75);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    opacity: 0;
+    display: none;
+}
+.alert-show-img img{
+    width: 100px;
+}
+.alert-show-img .container-ASI{
+    width: 400px;
+    padding: 15px;
+    position: relative;
+    display: flex;
+    flex-direction: column;
+    gap: 25px;
+}
+.alert-show-img .container-ASI #btn-close-ASI{
+    position: absolute;
+    top: -30px;
+    right: -10px;
+    font-size: 22px;
+    color: white;
+    padding: 10px;
+}
+.alert-show-img .container-ASI #btn-close-ASI:hover{
+    cursor: pointer;
+    color: #ff7d1a;
+}
+.alert-show-img .container-ASI .conImg-ASI{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+.alert-show-img .container-ASI .conImg-ASI img{
+    width: 100%;
+    border-radius: 10px;
+}
+.alert-show-img .container-ASI .conImg-ASI i{
+    background-color: white;
+    padding: 10px 14px;
+    font-size: 18px;
+    border-radius: 50%;
+    color: #1d2025;
+}
+.alert-show-img .container-ASI .conImg-ASI i:hover{
+    color: #ff7d1a;
+    cursor: pointer;
+}
+#angle-left-ASI{
+    position: absolute;
+    left: -5px;
+    
+}
+#angle-right-ASI{
+    position: absolute;
+    right: -5px;
+}
+.imgs4-ASI{
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+.imgs4-ASI img{
+    width: 65px;
+    border-radius: 10px;
+}
+.imgs4-ASI img:hover{
+    cursor: pointer;
+    opacity: .5 !important;
+}
+.imgs4-ASI div{
+    border: 1.5px solid transparent;
+    width: 65px;
+    height: 65px;
+    border-radius: 12px;
+    overflow: hidden;
+}
+.imgs4-ASI div img{
+    width: 100%;
+    height: 100%;
+}
+
+
+
+
+/******************************* @media **************************/
 @media screen and (max-width:992px){
+    /* nav and mobile menue */
     nav{
         padding: 0 20px;
     }
@@ -388,6 +487,7 @@ nav .rightNav .avatar img{
     
 }
 @media screen and (max-width:850px){
+    /* container */
     .container{
         flex-direction: column;
         width: 100%;
@@ -454,7 +554,7 @@ nav .rightNav .avatar img{
         display: block;
         width: 100%;
         font-size: 20px;
-        padding: 18px 40px;
+        padding: 15px 40px;
     }
     .conImg{
         width: 80%;
@@ -466,6 +566,7 @@ nav .rightNav .avatar img{
 
 }
 @media screen and (max-width:480px){
+    /* right side in container */
     .rightContainer h1{
         text-align: left;
     }
@@ -476,7 +577,7 @@ nav .rightNav .avatar img{
         display: block;
     }
 
-    /* alert cart */
+    /*** alert cart ***/
     .alert-cart {
         width: 95%;
         top: 110px;
@@ -511,10 +612,3 @@ nav .rightNav .avatar img{
         width: 22px;
     }
 }
-
-
-
-
-
-
-

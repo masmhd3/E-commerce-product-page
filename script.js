@@ -4,6 +4,7 @@ const mobileMenue = document.getElementById('mobile-menue')
 const spaceClose = document.getElementById('space')
 const xCloseMenue = document.getElementById('x-close-menue')
 
+///////////////////// mobile menue /////////////////////////
 btnOpenMenue.onclick = function(){
     if(alertMoblieMenue.style.display == 'none' || alertMoblieMenue.style.display == ''){
         alertMoblieMenue.style.display = 'flex'
@@ -27,7 +28,7 @@ xCloseMenue.onclick = function(){
 }
 
 
-// user photo
+/////////////////////// user photo /////////////////////////////
 let userPhoto = document.getElementById('userPhoto');
 let inpAddPhoto = document.getElementById('inpAddPhoto');
 
@@ -67,7 +68,7 @@ function showPhoto(){
 showPhoto()
 
 
-// container
+//////////////////////// container /////////////////////////
 const mainImg = document.querySelector('.mainImg img')
 const allImages = document.querySelectorAll('.smallImg .img img')
 const AllMainImgs = [
@@ -75,8 +76,8 @@ const AllMainImgs = [
     'img/images/image-product-2.jpg',
     'img/images/image-product-3.jpg',
     'img/images/image-product-4.jpg',
-]
-let indexImg ;
+];
+let indexImg ;// this variable is so important
 allImages.forEach((img) => {
     img.onclick = function(){
         allImages.forEach((ele) =>{
@@ -93,7 +94,7 @@ allImages.forEach((img) => {
 })
 
 
-//counter
+////////////////// number of products that are put in cart ////////////////////////
 const counter = document.getElementById('number');
 const minusIcon = document.getElementById('minusIcon');
 const plusIcon = document.getElementById('plusIcon');
@@ -112,20 +113,19 @@ minusIcon.onclick = function() {
 };
 
 
-// alert cart
+////////////////////////////////////////// alert cart /////////////////////////////
 const alertCart = document.querySelector('.alert-cart')
 const cartIcon = document.querySelector('.icon-cart img')
 const emptyCart = document.querySelector('.content-cart')
 const fillCart = document.querySelector('.listCart')
 
-//function
 cartIcon.onclick = function(){
     if(alertCart.style.display == 'none' || alertCart.style.display == ''){
         alertCart.style.display = 'flex'
         setTimeout(() => alertCart.style.opacity = '1', 50);
         cartIcon.style.filter = 'drop-shadow(0 0 10px rgba(0, 0, 0, 0.5))'
 
-        //
+        ////function check products in cart or no 
         checkProCart()
 
     }else{
@@ -134,7 +134,7 @@ cartIcon.onclick = function(){
         cartIcon.style.filter =  'drop-shadow(0 0 0 transparent)'
     }
 }
-
+//function check products in cart or no 
 function checkProCart(){
     if(fillCart.firstElementChild.innerHTML){
         fillCart.style.display = 'flex'
@@ -150,7 +150,7 @@ const btnAddToCart = document.getElementById('btn-add-cart');
 const noticeCart = document.getElementById('com');
 const productBox = document.getElementById('contPro');
 
-// notice
+///////////////////////////////// notice //////////////////////////
 let noticeCounter;
 localStorage.loNoticeCounter;
 if(localStorage.loNoticeCounter != null){
@@ -171,7 +171,7 @@ showNotice()
 
 
 
-// create data products
+/////////// create data products
 localStorage.loArrDataProducts;
 let arrDataProducts;
 if(localStorage.loArrDataProducts != null){
@@ -214,7 +214,6 @@ function showProCart(){
             </div>
         `
     }
-
 }
 showProCart()
 
@@ -240,4 +239,57 @@ btnCheckOut.onclick = function(){
     showProCart()
     checkProCart()
     showNotice()
+}
+
+
+
+/////////////////////////////// Galary //////////////////////////////
+const smallImgsASI = document.querySelectorAll('.imgs4-ASI div img');
+const mainGalary = document.querySelector('.alert-show-img');
+const btnCloseGalary = document.getElementById('btn-close-ASI');
+const mainImgASI = document.getElementById('mainImg-ASI');
+const angleleftASI = document.getElementById('angle-left-ASI');
+const anglerightASI = document.getElementById('angle-right-ASI');
+
+// open galary
+mainImg.addEventListener('click',function(){
+    mainGalary.style.display = 'flex';
+    mainGalary.style.padding = '20px';
+    setTimeout(() => mainGalary.style.opacity = '1', 50);
+    smallImgsASI[indexImg].click()
+})
+// close calary
+btnCloseGalary.addEventListener('click',function(){
+    mainGalary.style.opacity = '0';
+    mainGalary.style.display = 'none';
+    // 
+    allImages[indexImg].click()
+})
+
+// small images
+smallImgsASI.forEach((img) => {
+    img.onclick = function(){
+        smallImgsASI.forEach((img) =>{
+            img.parentElement.style.borderColor = 'transparent'
+            img.style.opacity = '1'
+        })
+        img.parentElement.style.borderColor = '#ff7d1a'
+        img.style.opacity = '.5'
+
+        //
+        mainImgASI.src = AllMainImgs[Array.from(smallImgsASI).indexOf(img)]
+        indexImg = Array.from(smallImgsASI).indexOf(img)
+    }
+})
+
+//////////////////////// moveimg in galary
+anglerightASI.onclick = function(){
+    indexImg += 1
+    indexImg >= 4 ? indexImg = 0 : indexImg
+    smallImgsASI[indexImg].click()
+}
+angleleftASI.onclick = function(){
+    indexImg -= 1
+    indexImg  < 0 ? indexImg = 3 : indexImg
+    smallImgsASI[indexImg].click()
 }
