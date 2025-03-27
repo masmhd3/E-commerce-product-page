@@ -481,6 +481,7 @@ nav .rightNav .avatar img{
     bottom: 50%;
     left:15px;
     border-radius: 50%;
+    display: none;
 }
 #mainImg-BTN-right{
     position: absolute;
@@ -489,6 +490,7 @@ nav .rightNav .avatar img{
     bottom: 50%;
     right: 15px;
     border-radius: 50%;
+    display: none;
 }
 #mainImg-BTN-right:hover,#mainImg-BTN-left:hover{
     color: #ff7d1a;
@@ -585,6 +587,9 @@ nav .rightNav .avatar img{
     }
     .buy img{
         width: 35px;
+    }
+    #mainImg-BTN-right,#mainImg-BTN-left{
+        display: block;
     }
 
 }
