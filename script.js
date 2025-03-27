@@ -105,10 +105,8 @@ plusIcon.onclick = function() {
     counter.innerHTML = numberProducts
 };
 minusIcon.onclick = function() {
-    if(numberProducts <= 0){
-        numberProducts = 0;
-    }
     numberProducts -= 1;
+    numberProducts == 0? numberProducts = 1:numberProducts;
     counter.innerHTML = numberProducts
 };
 
