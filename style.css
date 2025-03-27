@@ -470,6 +470,29 @@ nav .rightNav .avatar img{
 }
 
 
+/*  */
+.mainImg{
+    position: relative;
+}
+#mainImg-BTN-left{
+    position: absolute;
+    padding: 10px 15px;
+    background-color: white;
+    bottom: 50%;
+    left:15px;
+    border-radius: 50%;
+}
+#mainImg-BTN-right{
+    position: absolute;
+    padding: 10px 15px;
+    background-color: white;
+    bottom: 50%;
+    right: 15px;
+    border-radius: 50%;
+}
+#mainImg-BTN-right:hover,#mainImg-BTN-left:hover{
+    color: #ff7d1a;
+}
 
 
 /******************************* @media **************************/

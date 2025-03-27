@@ -293,3 +293,17 @@ angleleftASI.onclick = function(){
     indexImg  < 0 ? indexImg = 3 : indexImg
     smallImgsASI[indexImg].click()
 }
+
+
+//////////// btns control Galary on mobile //////////////
+const mainImgLeftBTN = document.getElementById('mainImg-BTN-left');
+const mainImgRightBTN = document.getElementById('mainImg-BTN-right');
+
+mainImgLeftBTN.onclick = function(){
+    angleleftASI.click()
+    mainImg.src = AllMainImgs[indexImg]
+}
+mainImgRightBTN.onclick = function(){
+    anglerightASI.click()
+    mainImg.src = AllMainImgs[indexImg]
+}
